@@ -1,9 +1,9 @@
 [package]
 name = "mk"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
-authors = ["Egor Maajer"]
-description = "DevSecOps CLI: Scanning, Docker/GitHub Integration"
+authors = ["Egør Maajer"]
+description = "Fast Rust-powered CLI for git workflows, Docker container management, security scanning, JWT generation, and HTTP requests — all in one tool. "
 license = "MIT"
 repository = "https://github.com/monokkai/cli"
 homepage = "https://hub.docker.com/r/monokkay/devsecops-cli"
