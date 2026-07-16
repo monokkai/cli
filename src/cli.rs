@@ -16,6 +16,10 @@ pub enum Commands {
     Auth(AuthArgs),
     Log(LogArgs),
     Http(HttpArgs),
+    /// Generate a secure JWT secret for .env
+    Jwt,
+    /// Decode a base64 string
+    Decode(DecodeArgs),
 }
 
 #[derive(Parser)]
@@ -152,4 +156,10 @@ pub enum HttpAction {
         #[arg(short, long)]
         headers: Vec<String>,
     },
+}
+
+#[derive(Parser)]
+pub struct DecodeArgs {
+    #[arg(long)]
+    pub base64: String,
 }

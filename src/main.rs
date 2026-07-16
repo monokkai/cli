@@ -18,6 +18,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
         cli::Commands::Auth(args) => services::auth::handle(args),
         cli::Commands::Log(args) => modules::git::log::handle(&args),
         cli::Commands::Http(args) => modules::http::handler::handle(args.action).await?,
+        cli::Commands::Jwt => modules::jwt::generate(),
+        cli::Commands::Decode(args) => modules::jwt::decode(&args.base64),
     }
 
     Ok(())
