@@ -20,7 +20,8 @@ pub enum Commands {
 
 #[derive(Parser)]
 pub struct GitArgs {
-    #[arg(short, long)]
+    /// Commit message — automatically stages and pushes
+    #[arg(index = 1)]
     pub message: Option<String>,
 
     #[arg(short, long, default_value_t = false)]
@@ -34,6 +35,10 @@ pub struct GitArgs {
 
     #[arg(short, long, default_value_t = false)]
     pub rebase: bool,
+
+    /// Commitizen interactive flow + add + push
+    #[arg(long = "ap", default_value_t = false)]
+    pub ap: bool,
 
     #[command(subcommand)]
     pub subcommand: Option<GitSubcommand>,
