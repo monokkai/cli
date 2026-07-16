@@ -1,4 +1,4 @@
-# DevSecOps CLI(monokkai) Toolkit 🔒
+# DevSecOps CLI (mk) Toolkit 🔒
 
 ![Rust CI](https://github.com/monokkai/devsecops-cli/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -38,40 +38,40 @@ cargo install --path .
 
 ```zsh
 # Security Scanning
-monokkai scan -p ./path/to/scan  # Scan directory for vulnerabilities
+mk scan -p ./path/to/scan  # Scan directory for vulnerabilities
 
 # Docker Operations
-monokkai docker scan --image alpine:latest  # Scan Docker image
-monokkai docker push --image myapp --tag v1.0  # Build and push to DockerHub
+mk docker scan --image alpine:latest  # Scan Docker image
+mk docker push --image myapp --tag v1.0  # Build and push to DockerHub
 
 # Authentication
-monokkai auth jwt --token "your.jwt.token"  # Validate JWT
-monokkai auth github --token "ghp_yourtoken"  # Verify GitHub token
+mk auth jwt --token "your.jwt.token"  # Validate JWT
+mk auth github --token "ghp_yourtoken"  # Verify GitHub token
 
 # Git Automation
-monokkai git -m "commit message" [--push]  # Commit (and optionally push)
-monokkai git -a -m "My commit message" --push # Already contains 'git add .' flag
-monokkai git --pull --rebase -a -m "message" -p
-monokkai git --pull -m "message"
-monokkai log # Default history of commits
-monokkai log --graph -l 5 # The last 5 (for example)
-monokkai log --compact # Hash and message
-monokkai log --graph # With graph (for example if u're commiting with others)
+mk git -m "commit message" [--push]  # Commit (and optionally push)
+mk git -a -m "My commit message" --push # Already contains 'git add .' flag
+mk git --pull --rebase -a -m "message" -p
+mk git --pull -m "message"
+mk log # Default history of commits
+mk log --graph -l 5 # The last 5 (for example)
+mk log --compact # Hash and message
+mk log --graph # With graph (for example if u're commiting with others)
 
 # Git CLI like commitizen interface
 # This git line tool only made for make work easier and won't gonna be sold or paid!
-monokkai git cz # Basic commit
-monokkai git cz -a -p # With git add . and git push
-monokkai git cz -a # only commit
-monokkai git cz --pull # with pull
+mk git cz # Basic commit
+mk git cz -a -p # With git add . and git push
+mk git cz -a # only commit
+mk git cz --pull # with pull
 ```
 
 # Http simple requests
 
 ```zsh
-monokkai http get https://github.com/monokkai
-monokkai http get https://example.com
-monokkai http delete https://api.example.com/resource/1 --headers "Authorization: Bearer token"
-monokkai http head https://api.example.com --headers "Accept: application/json"
-monokkai http options https://api.example.com
+mk http get https://github.com/monokkai
+mk http get https://example.com
+mk http delete https://api.example.com/resource/1 --headers "Authorization: Bearer token"
+mk http head https://api.example.com --headers "Accept: application/json"
+mk http options https://api.example.com
 ```

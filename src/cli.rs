@@ -1,7 +1,7 @@
 use clap::{Args, Parser, Subcommand};
 
 #[derive(Parser)]
-#[command(name = "monokkai")]
+#[command(name = "mk")]
 #[command(about = "DevSecOps CLI Tool", version)]
 pub struct CliArgs {
     #[command(subcommand)]

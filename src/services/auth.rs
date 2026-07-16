@@ -26,7 +26,7 @@ pub fn handle(args: AuthArgs) {
                 match Client::new()
                     .get("https://api.github.com/user")
                     .header("Authorization", format!("Bearer {}", token))
-                    .header("User-Agent", "monokkai")
+                    .header("User-Agent", "mk")
                     .send()
                     .await
                 {

@@ -60,7 +60,7 @@ impl GitHelper {
 
     fn get_changed_files() -> Result<(Vec<String>, Vec<String>, Vec<String>), std::io::Error> {
         let output = Command::new("git")
-            .args(&["status", " - - porcelain"])
+            .args(&["status", "--porcelain"])
             .output()?;
         let status = String::from_utf8_lossy(&output.stdout);
 
@@ -123,7 +123,7 @@ impl GitHelper {
     }
 
     fn create_commit(message: &str) -> Result<(), String> {
-        let commit_output = Self::execute_git_command(&["commit", " - m", message]);
+        let commit_output = Self::execute_git_command(&["commit", "-m", message]);
 
         match commit_output {
             Ok(output) if Self::is_commit_successful(&output) => {
@@ -172,7 +172,7 @@ impl GitHelper {
                     println!("{} Try running:", "💡".blue());
                     println!("  git pull - - rebase");
                     println!("Then push again with:");
-                    println!("  monokkai git -a -m \"your message\" -p");
+                    println!("  mk git -a -m \"your message\" -p");
                     Err("Push rejected".to_string())
                 } else {
                     Err(format!(
@@ -187,8 +187,8 @@ impl GitHelper {
     }
 
     fn pull_changes(rebase: bool) -> Result<(), String> {
-        let pull_type = if rebase { "--rebase" } else { "" };
-        match Self::execute_git_command(&["pull", pull_type]) {
+        let args: &[&str] = if rebase { &["pull", "--rebase"] } else { &["pull"] };
+        match Self::execute_git_command(args) {
             Ok(output) if output.status.success() => {
                 println!(
                     "{} {}",
