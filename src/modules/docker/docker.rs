@@ -10,6 +10,10 @@ pub fn handle(args: DockerArgs) {
     let dockerhub_user = env::var("DOCKERHUB_USER").expect("DOCKERHUB_USER not set in .env");
 
     match args.action {
+        DockerAction::Ps => {
+            crate::modules::docker::ps::handle();
+            return;
+        }
         DockerAction::Scan { image } => {
             println!("{} {}", "🔍 Scanning image:".blue(), image.green());
             let status = Command::new("trivy")

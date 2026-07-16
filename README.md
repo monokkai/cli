@@ -29,8 +29,9 @@ mk log --compact          # one line per commit
 ## Docker
 
 ```bash
-mk docker scan --image alpine:latest          # security scan with Trivy
-mk docker push --image myapp --tag v1.0       # build and push to DockerHub
+mk docker ps                                       # show all containers in a table
+mk docker scan --image alpine:latest               # security scan with Trivy
+mk docker push --image myapp --tag v1.0            # build and push to DockerHub
 ```
 
 Requires `DOCKERHUB_USER` in `.env`.
@@ -46,6 +47,13 @@ mk scan -p ./path/to/scan    # scan directory for vulnerabilities
 ```bash
 mk auth jwt --token "your.jwt.token"      # validate JWT
 mk auth github --token "ghp_yourtoken"   # verify GitHub token
+```
+
+## JWT
+
+```bash
+mk jwt                          # generate a secure JWT secret, ready to paste into .env
+mk decode --base64 <string>     # decode a base64 string
 ```
 
 ## HTTP

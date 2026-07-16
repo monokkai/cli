@@ -91,6 +91,8 @@ pub struct LogArgs {
 
 #[derive(Subcommand)]
 pub enum DockerAction {
+    /// Show all containers in a table
+    Ps,
     Scan { image: String },
     Push { image: String, tag: Option<String> },
 }

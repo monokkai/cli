@@ -13,7 +13,7 @@ pub fn generate() {
 
     let encoded = STANDARD.encode(secret);
     println!("{}", "Generated JWT secret:".blue());
-    println!("JWT={}", encoded.green());
+    println!("JWT_SECRET={}", encoded.green());
 }
 
 pub fn decode(input: &str) {

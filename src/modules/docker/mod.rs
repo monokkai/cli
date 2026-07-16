@@ -1,4 +1,5 @@
 pub mod docker;
+pub mod ps;
 pub mod scan;
 
 pub use docker::handle;
